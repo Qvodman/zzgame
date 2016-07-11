@@ -1,9 +1,11 @@
 body{ 
     background-color: #0099ff; 
     color: #fff; 
-    font: 12px/1.5 'å¾®è½¯é›…é»‘';
+    font: 12px/1.5 'Î¢ÈíÑÅºÚ';
 }
-body>a{ display: none; }
+body>a{ 
+    display: none; 
+}
 
 .page{
     position: absolute;
@@ -118,6 +120,7 @@ body>a{ display: none; }
 #dialog .inner .pause h3{
     color: #FFE2C5;
 }
+
 #dialog .inner .btn{
     margin: 15px auto;
 }
@@ -140,12 +143,13 @@ body>a{ display: none; }
     border-radius: 7px;
     box-shadow: 0 5px #DA9622;
     font-size: 20px;
-    font-family: 'å¾®è½¯é›…é»‘';
+    font-family: 'Î¢ÈíÑÅºÚ';
     height: 70px;
     width: 220px;
     line-height: 70px;
     -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
+
 .btn.btn-bottom{
     position: absolute;
     width: 300px;
@@ -162,6 +166,7 @@ body>a{ display: none; }
     margin: 0 auto;
     -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
+
 .btn-wrap .boyaa-logo img{
     max-width: 100%;
 }
@@ -171,11 +176,12 @@ body>a{ display: none; }
         height: 100%;
         width: 80px;
     }
+
     #room header .lv{
         left: 0;
     }
 
-    #room header .time{
+    /*#room header .time{
         display: inline-block;
         height: 50px;
         width: 100%;
@@ -184,7 +190,8 @@ body>a{ display: none; }
         top: 50%;
         left: 0;
         margin-top: -25px;
-    }
+    }*/
+
     #room header .btn-pause{
         top: auto;
         bottom: 15px;
@@ -231,7 +238,7 @@ body>a{ display: none; }
 .main{
     position: relative;
     margin: 10px auto;
-    margin-top: 33px;
+    /*margin-top: 33px;*/
     margin-bottom: 5%;
     width: 380px;
     height: 600px;
@@ -270,5 +277,16 @@ body>a{ display: none; }
     cursor: pointer;
     /*background-color: #000;*/
     background-image: url(../img/mouse01.jpg);
-    background-repeat: repeat-y;
+    background-size:93px 148px;
+    background-repeat: no-repeat;
+    width: 93px;
+    height: 148px;
+}
+
+.sum{
+    /*width: 100%;
+    height: 50px;
+    line-height: 50px;*/
+    font-size: 16px;
+    color: #FFA1A1;
 }
