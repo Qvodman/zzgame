@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <title>ZZ小游戏——注册</title>
+    <meta name="description" content="slick Login">
+    <meta name="author" content="Webdesigntuts+">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+    <script type="text/javascript" src="placeholder.js"></script>
+</head>
+ 
+<body>
+    <form id="slick-register" method="post" action="registerservlet" onsubmit="return checkall(this)">
+    	<div><img src="img/logo.png" alt="ZZ小游戏" /></div>
+    	<br />
+    	<br />
+        <label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="请输入用户名" required="required" oninvalid="setCustomValidity('请填写用户名！')" oninput="setCustomValidity('')" />
+        <label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="请输入密码" required="required" oninvalid="setCustomValidity('请填写密码！')" oninput="setCustomValidity('')" />
+        <label for="username">nickname</label><input type="text" name="nickname" class="placeholder" placeholder="请输入昵称" required="required" oninvalid="setCustomValidity('请填写昵称！')" oninput="setCustomValidity('')" />
+        <input type="submit" value="注册">
+        <input type="reset" value="重置">
+		<div id="back"><a href="login.html"><img src="img/back.png" alt="返回" height="50" width="50"/></a></div>
+    </form>
+</body>
+
+<script type="text/javascript">
+	function checkall(obj) {
+		if (obj.username.value == "") {
+			alert("请输入用户名！");
+			obj.username.focus();
+			return false;
+		}
+		if (obj.password.value == "") {
+			alert("请输入密码!");
+			obj.password.focus();
+			return false;
+		}
+		if (obj.niackname.value == "") {
+			alert("请输入昵称!");
+			obj.niackname.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+ 
+</html>

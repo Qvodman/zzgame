@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>ZZ小游戏——登录</title>
+    <meta name="description" content="slick Login">
+    <meta name="author" content="Webdesigntuts+">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+    <script type="text/javascript" src="placeholder.js"></script>
+</head>
+ 
+<body> 	
+    <form id="slick-login" name="slick-login" method="post" action="loginservlet" onsubmit="return checkall(this)">
+    	<div><img src="img/logo.png" alt="ZZ小游戏" /></div>
+    	<br />
+    	<br />
+        <label for="username">username</label><input type="text" id="username" name="username" class="placeholder" placeholder="账号" onfocus="javascript:this.value=''" required="required" oninvalid="setCustomValidity('请填写用户名！')" oninput="setCustomValidity('')" />
+        <label for="password">password</label><input type="password" id="password" name="password" class="placeholder" placeholder="密码" required="required" oninvalid="setCustomValidity('请填写密码！')" oninput="setCustomValidity('')" />
+        <input type="submit" value="登录">
+        <input type="button" onclick="skip()" value="注册">
+    </form>
+</body>
+<script type="text/javascript">
+	function skip() {
+		window.location.href = "register.html";
+	}
+
+	function checkall(obj) {
+		if (obj.username.value == "") {
+			alert("请输入用户名！");
+			obj.username.focus();
+			return false;
+		}
+		if (obj.password.value == "") {
+			alert("请输入密码!");
+			obj.password.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+
+
+</html>
