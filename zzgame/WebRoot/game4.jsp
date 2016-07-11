@@ -10,7 +10,7 @@
 %>
 <%
 	if (session.getAttribute("user") == null) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("../login.html");
 		return;
 	}
 	user user = (user) session.getAttribute("user");
@@ -26,7 +26,7 @@
 		rs = stmt.executeQuery();
 		while (rs.next()) {
 		if(rs.getInt("game3_score")<5000){
-			out.print("<script>alert('第4关未能解锁！');location.href='index.jsp';</script>");
+			out.print("<script>alert('第4关未能解锁！');location.href='../index.jsp';</script>");
 			}
 		}
 		

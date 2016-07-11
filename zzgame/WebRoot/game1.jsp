@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%
 	if (session.getAttribute("user") == null) {
-		response.sendRedirect("login.html");
+		response.sendRedirect("../login.html");
 		return;
 	}
 	user user = (user) session.getAttribute("user");
