@@ -18,12 +18,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		String sql = null;
 		dbc = new DB();
 		dbConn = dbc.getConnection();
+		String game = request.getParameter("game");
+		if(game.equals("game1")){
+			int game1_score = Integer.parseInt(request.getParameter("game1_score"));
+			sql = "update user set game1_score=? where username=?";
+			PreparedStatement stmt = dbConn.prepareStatement(sql);
+			stmt.setInt(1,game1_score);
+			stmt.setString(2,user.getUsername());
+			stmt.executeUpdate();
+			response.sendRedirect("../zzgame/game1/gameover.html");
+			
+		}
 		
+		if(game.equals("game2")){
+			int game2_score = Integer.parseInt(request.getParameter("game2_score"));
+			sql = "update user set game2_score=? where username=?";
+			PreparedStatement stmt = dbConn.prepareStatement(sql);
+			stmt.setInt(1,game2_score);
+			stmt.setString(2,user.getUsername());
+			stmt.executeUpdate();
+			
+		}
+		
+		if(game.equals("game3")){
+			int game3_score = Integer.parseInt(request.getParameter("game3_score"));
+			sql = "update user set game3_score=? where username=?";
+			PreparedStatement stmt = dbConn.prepareStatement(sql);
+			stmt.setInt(1,game3_score);
+			stmt.setString(2,user.getUsername());
+			stmt.executeUpdate();
+			
+		}
+		
+		if(game.equals("game4")){
+		int game1_score =0;
+		int game2_score =0;
+		int game3_score =0;
 		int game4_score = Integer.parseInt(request.getParameter("game4_score"));
-		int game1_score=0;
-		int game2_score=0;
-		int game3_score=0;
 		int score=0;
+		
+	
 		
 		sql = "SELECT * FROM user where username=?";
 		PreparedStatement stmt = dbConn.prepareStatement(sql);
@@ -45,7 +79,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		stmt.setInt(2,score);
 		stmt.setString(3,user.getUsername());
 		stmt.executeUpdate();
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect("../zzgame/index.jsp");
+		}
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -65,7 +100,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-  
   <body>
   </body>
 </html>

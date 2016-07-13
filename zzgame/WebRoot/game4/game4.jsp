@@ -25,7 +25,7 @@
 		stmt.setString(1,user.getUsername());
 		rs = stmt.executeQuery();
 		while (rs.next()) {
-		if(rs.getInt("game3_score")<5000){
+		if(rs.getInt("game3_score")<50){
 			out.print("<script>alert('第4关未能解锁！');location.href='../index.jsp';</script>");
 			}
 		}

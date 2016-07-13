@@ -249,7 +249,7 @@ Game.prototype.updateBullet = function() {
 Game.prototype.gameOver = function()
 { 
 	alert("游戏结束!\n得分："+this.score+"\n时间："+Math.ceil((Date.now()-this.startTime)/1000)+"s");
-	window.location.href = "../score.jsp?game4_score="+this.score;
+	window.location.href = "../score.jsp?game=game4&game4_score="+this.score;
 }
 
 var g_touch_x,g_touch_y;
