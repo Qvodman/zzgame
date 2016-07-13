@@ -59,7 +59,7 @@ if(session.getAttribute("user")== null){
 	}	
 	function game4()
 	{
-    	window.location.href="game4.jsp";
+    	window.location.href="game4/game4.jsp";
 	}
 	function ranking()
 	{

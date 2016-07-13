@@ -58,25 +58,38 @@
 		stmt.executeUpdate(); */
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'game4.jsp' starting page</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+    <head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <title>WebGL</title>
+        <style type="text/css">
+            div#canvas-frame {
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                height: 600px;
+                background-color: #EEEEEE;
+            }
 
-  </head>
-  
-  <body>
-    This is my JSP page. <br>
-  </body>
+        </style>
+    </head>
+
+    <body>
+        <div id="canvas-frame"></div>
+		<canvas 
+			id="ScoreCanvas" style="top:10px;left:10px;position: absolute;">
+		</canvas> 
+		<canvas 
+			id="TimeCanvas" style="top:30px;left:10px;position: absolute;">
+		</canvas> 
+        <script src="js/three_r73.js"></script>
+        <script src="js/random.js"></script>
+        <script src="js/bullet.js"></script>
+        <script src="js/game.js"></script>
+        <script>
+			var viewer = new Game('canvas-frame', window.innerWidth, window.innerHeight);
+        </script>
+    </body>
 </html>

@@ -33,11 +33,11 @@
 		int game2_score=0;//第2关得分传给此变量
 		
 		//向数据库传入得分
-		sql = "update user set game2_score=? where username=?";
+		/* sql = "update user set game2_score=? where username=?";
 		stmt = dbConn.prepareStatement(sql);
 		stmt.setInt(1,game2_score);
 		stmt.setString(2,user.getUsername());
-		stmt.executeUpdate();		
+		stmt.executeUpdate();	 */	
 %>
 
 <!doctype html>
@@ -63,7 +63,7 @@
     </div>
   </div>
   <div class="page hide" id="room">
-    <header> <span class="lv"> 得分： <em> 0 </em> </span> <span class="time"> </span> <span class="btn btn-pause"> 暂停 </span> </header>
+    <header> <span class="lv" id="t"> 得分： <em> <span>1</span> </em></span> <span class="time"> </span> <span class="btn btn-pause"> 暂停 </span> </header>
     <div id="box_pass">规定分数：50</div>
     <div id="box_mage"></div>
     <div id="box" class="lv1"> </div>
@@ -71,10 +71,8 @@
   <div class="page hide" id="dialog">
     <div class="inner">
       <div class="content gameover">
-        <h3></h3>
-        <div class="btn-wrap">
-          <button class="btn btn-restart"> 再来一次 </button>
-        </div>
+        <h3></h3> 
+          <button onclick = "submit()" class="btn btn-restart"> 再来一次 </button>
       </div>
       <div class="content pause">
         <h3> 游戏暂停 </h3>
@@ -92,3 +90,6 @@
 </html>
 <script src="assets/js/libs.min.js?a=1111"></script>
 <script src="assets/js/main.min.js?ver=1.11.41"></script>
+<script>
+
+</script>

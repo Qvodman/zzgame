@@ -33,4 +33,13 @@
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/logoutservlet</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>ScoreServlet</servlet-name>
+  	<servlet-class>Servlet.ScoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ScoreServlet</servlet-name>
+  	<url-pattern>/scoreservlet</url-pattern>
+  </servlet-mapping>
 </web-app>

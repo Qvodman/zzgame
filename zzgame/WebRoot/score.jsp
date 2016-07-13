@@ -3,41 +3,30 @@
 <%@ page import="DAO.*"%>
 <%@ page import="DB.*"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-	+ request.getServerName() + ":" + request.getServerPort()
-	+ path + "/";
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%
 	if (session.getAttribute("user") == null) {
 		response.sendRedirect("../login.html");
 		return;
 	}
-	user user = (user) session.getAttribute("user");
+		user user = (user) session.getAttribute("user");
 		DB dbc = new DB();
 		Connection dbConn = dbc.getConnection();
 		ResultSet rs = null;
 		String sql = null;
 		dbc = new DB();
 		dbConn = dbc.getConnection();
-		sql = "SELECT * FROM user where username=?";
-		PreparedStatement stmt = dbConn.prepareStatement(sql);
-		stmt.setString(1,user.getUsername());
-		rs = stmt.executeQuery();
-		while (rs.next()) {
-		if(rs.getInt("game3_score")<5000){
-			out.print("<script>alert('第4关未能解锁！');location.href='../index.jsp';</script>");
-			}
-		}
 		
+		int game4_score = Integer.parseInt(request.getParameter("game4_score"));
 		int game1_score=0;
 		int game2_score=0;
 		int game3_score=0;
 		int score=0;
-		int game4_score=0;//第4关得分传给此变量
 		
 		sql = "SELECT * FROM user where username=?";
-		stmt = dbConn.prepareStatement(sql);
+		PreparedStatement stmt = dbConn.prepareStatement(sql);
 		stmt.setString(1,user.getUsername());
 		rs = stmt.executeQuery();
 		while (rs.next()) {
@@ -50,12 +39,13 @@
 		
 		score = game1_score + game2_score + game3_score + game4_score;
 		//向数据库传入得分
-		/* sql = "update user set game4_score=? , score=? where username=?";
+		sql = "update user set game4_score=? , score=? where username=?";
 		stmt = dbConn.prepareStatement(sql);
 		stmt.setInt(1,game4_score);
 		stmt.setInt(2,score);
 		stmt.setString(3,user.getUsername());
-		stmt.executeUpdate(); */
+		stmt.executeUpdate();
+		response.sendRedirect("../index.jsp");
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -63,8 +53,8 @@
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'game4.jsp' starting page</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title></title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -77,6 +67,5 @@
   </head>
   
   <body>
-    This is my JSP page. <br>
   </body>
 </html>

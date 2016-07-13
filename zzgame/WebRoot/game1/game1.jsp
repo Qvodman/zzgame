@@ -82,9 +82,11 @@ body{
     <div class="inner">
       <div class="content gameover">
         <h3></h3>
+        
         <div class="btn-wrap">
           <button class="btn btn-restart"> 再来一次 </button>
         </div>
+        
       </div>
       <div class="content pause">
         <h3> 游戏暂停 </h3>

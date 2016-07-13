@@ -116,6 +116,28 @@ public class userDAO {
 		return user;
 	}
 	
+	public user score(int game2_score,String username){
+		user user =null;
+		try{
+			dbc = new DB();
+			dbConn = dbc.getConnection();
+			sql = "update user set game2_score=? where username=?";
+			PreparedStatement stmt = dbConn.prepareStatement(sql);
+			stmt.setInt(1,game2_score);
+			stmt.setString(2,username);
+			stmt.executeUpdate();
+
+		}catch(Exception e){
+			System.err.println(e);
+		}finally{
+			try{
+				dbc.closeConnection(dbConn);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
 	
 /*	public Vector ranking(){	
 		sql = "SELECT * FROM user ORDER BY score DESC";
