@@ -95,7 +95,7 @@ if(session.getAttribute("user")== null){
 	}	
 	function game3()
 	{
-    	window.location.href="game3.jsp";
+    	window.location.href="game3/game3.jsp";
 	}	
 	function game4()
 	{

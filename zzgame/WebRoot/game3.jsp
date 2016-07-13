@@ -26,7 +26,7 @@
 		rs = stmt.executeQuery();
 		while (rs.next()) {
 		if(rs.getInt("game2_score")<5000){
-			out.print("<script>alert('第3关未能解锁！');location.href='../index.jsp';</script>");
+			out.print("<script>alert('第3关未能解锁！');location.href='index.jsp';</script>");
 			}
 		}
 		
