@@ -1,4 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="DAO.*"%>
+<%@ page import="DB.*"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,6 +11,28 @@ if(session.getAttribute("user")== null){
   				response.sendRedirect("login.html");  					
   				return ;
 }
+		user user = (user) session.getAttribute("user");
+		DB dbc = new DB();
+		Connection dbConn = dbc.getConnection();
+		ResultSet rs = null;
+		String sql = null;
+		dbc = new DB();
+		dbConn = dbc.getConnection();
+		int game1_score =0;
+		int game2_score =0;
+		int game3_score =0;
+		int game4_score =0;		
+		sql = "SELECT * FROM user where username=?";
+		PreparedStatement stmt = dbConn.prepareStatement(sql);
+		stmt.setString(1,user.getUsername());
+		rs = stmt.executeQuery();
+		while (rs.next()) {
+			game1_score=rs.getInt("game1_score");
+			game2_score=rs.getInt("game2_score");
+			game3_score=rs.getInt("game3_score");
+			game4_score=rs.getInt("game4_score");
+		}
+		
 %>
 
 <!DOCTYPE html>
@@ -33,10 +58,25 @@ if(session.getAttribute("user")== null){
         <div><img src="img/logo.png" alt="ZZ小游戏" /></div>
     	<br />
     	<br />
-        <button onclick="game1()" >暴&nbsp;打&nbsp;地&nbsp;鼠</button>
-        <button class="fa fa-lock" onclick="game2()" >&nbsp;火&nbsp;眼&nbsp;金&nbsp;睛</button>
-        <button class="fa fa-lock" onclick="game3()" >&nbsp;&nbsp;&nbsp;Z&nbsp;&nbsp;Z&nbsp;&nbsp;旋&nbsp;舞</button>
-        <button class="fa fa-lock" onclick="game4()" >&nbsp;隐&nbsp;藏&nbsp;关&nbsp;卡</button>
+    	<%out.print("<button onclick='game1()' >暴&nbsp;打&nbsp;地&nbsp;鼠</button>"); %>
+    	<%if(game1_score<50){
+ 			out.print("<button class='fa fa-lock' onclick='game2()' >&nbsp;火&nbsp;眼&nbsp;金&nbsp;睛</button>");
+    	 }else{
+    	 	out.print("<button onclick='game2()' >&nbsp;火&nbsp;眼&nbsp;金&nbsp;睛</button>");
+    	 }
+    	 %>
+    	<%if(game2_score<50){
+ 			out.print("<button class='fa fa-lock' onclick='game3()' >&nbsp;&nbsp;&nbsp;Z&nbsp;&nbsp;Z&nbsp;&nbsp;旋&nbsp;舞</button>");
+    	 }else{
+    	 	out.print("<button onclick='game3()' >&nbsp;&nbsp;&nbsp;Z&nbsp;&nbsp;Z&nbsp;&nbsp;旋&nbsp;舞</button>");
+    	 }
+    	 %>
+    	<%if(game3_score<50){
+ 			out.print("<button class='fa fa-lock' onclick='game4()' >&nbsp;星&nbsp;球&nbsp;大&nbsp;战</button>");
+    	 }else{
+    	 	out.print("<button onclick='game4()' >&nbsp;星&nbsp;球&nbsp;大&nbsp;战</button>");
+    	 }
+    	 %>
         <button onclick="ranking()" >&nbsp;排&nbsp;行&nbsp;榜</button>
         <form id="logout" method="post" action="logoutservlet">
     		<input type="submit" value="注&nbsp;销">
