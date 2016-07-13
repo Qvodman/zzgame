@@ -63,7 +63,11 @@
     </div>
   </div>
   <div class="page hide" id="room">
-    <header> <span class="lv" id="t"> 得分： <em> <span>1</span> </em></span> <span class="time"> </span> <span class="btn btn-pause"> 暂停 </span> </header>
+    <header> 
+      <span class="lv"> 得分： <em> 0 </em> </span> 
+      <span class="time"> </span> 
+      <span class="btn btn-pause"> 暂停 </span> 
+    </header>
     <div id="box_pass">规定分数：50</div>
     <div id="box_mage"></div>
     <div id="box" class="lv1"> </div>
@@ -71,8 +75,11 @@
   <div class="page hide" id="dialog">
     <div class="inner">
       <div class="content gameover">
-        <h3></h3> 
-          <button onclick = "submit()" class="btn btn-restart"> 再来一次 </button>
+        <h3></h3>
+        <div class="btn-wrap">
+          <button class="btn btn-restart"> 再来一次 </button>
+          <button class="btn btn-back"> 返回 </button>
+        </div>
       </div>
       <div class="content pause">
         <h3> 游戏暂停 </h3>
@@ -90,6 +97,4 @@
 </html>
 <script src="assets/js/libs.min.js?a=1111"></script>
 <script src="assets/js/main.min.js?ver=1.11.41"></script>
-<script>
 
-</script>
