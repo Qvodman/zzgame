@@ -48,6 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			stmt.setInt(1,game3_score);
 			stmt.setString(2,user.getUsername());
 			stmt.executeUpdate();
+			response.sendRedirect("../zzgame/index.jsp");
 			
 		}
 		

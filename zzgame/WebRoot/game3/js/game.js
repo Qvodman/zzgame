@@ -1,6 +1,6 @@
 "use strict"
-var g_minSpeed = 1.0 ;
-var g_maxSpeed = 3.0 ;
+var g_minSpeed = 3.0 ;
+var g_maxSpeed = 5.0 ;
 var Game = function(containerId, width, height){
 
 	this.width = width-10;
@@ -18,7 +18,7 @@ var Game = function(containerId, width, height){
 	this.dir = [] ;
 	this.speed = g_minSpeed ;
 	this.score = 0 ;
-	this.goalScore = 100;
+	this.goalScore = 50;
 	
 	this.Start = false ;
 	this.bGameOver = false;
@@ -136,12 +136,14 @@ Game.prototype.gameOver = function()
 {
 	alert("游戏结束!\n得分："+this.score+"\n时间："+Math.ceil((Date.now()-this.startTime)/1000)+"s");
 	this.bGameOver = true;
+	window.location.href = "../score.jsp?game=game3&game3_score="+this.score;
 }
 
 Game.prototype.gameWin = function()
 {
 	alert("游戏胜利!"+"\n用时："+Math.ceil((Date.now()-this.startTime)/1000)+"s");
 	this.bGameOver = true;
+	window.location.href = "../score.jsp?game=game3&game3_score="+this.score;
 }
 
 Game.prototype.move = function(){

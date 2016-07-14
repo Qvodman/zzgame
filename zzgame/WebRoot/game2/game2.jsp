@@ -57,7 +57,7 @@
   <div class="page hide" id="loading"> loading... </div>
   <div class="page hide" id="index">
     <h1>游戏二</h1>
-    <div id="help">找出所有色块里颜色不同的一个</div>
+    <div id="help">根据提示找出九宫格色块里的目标颜色</div>
     <div class="btns">
       <button data-type="color" class="btn play-btn"> 开始游戏 </button>
     </div>
